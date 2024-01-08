@@ -1,0 +1,3 @@
+fastapi
+uvicorn
+alibabacloud_alidns20150109
