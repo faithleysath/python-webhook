@@ -1,7 +1,4 @@
 import os
-import sys
-
-from typing import List
 
 from alibabacloud_alidns20150109.client import Client as Alidns20150109Client
 from alibabacloud_tea_openapi import models as open_api_models
@@ -18,9 +15,6 @@ REDIR_RR_VALUE = os.environ.get("REDIR_RR_VALUE")
 SRV_RR_ID = os.environ.get("SRV_RR_ID")
 SRV_RR = os.environ.get("SRV_RR")
 SRV_RR_VALUE = os.environ.get("SRV_RR_VALUE")
-QB_USERNAME = os.environ.get("QB_USERNAME", "admin")
-QB_PASSWORD = os.environ.get("QB_PASSWORD", "adminadmin")
-QB_ADDR = os.environ.get("QB_ADDR", "127.0.0.1:8080")
 DEFAULT_URL = os.environ.get("DEFAULT_URL", "https://www.baidu.com")
 
 class Sample:
