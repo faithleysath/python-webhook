@@ -27,7 +27,7 @@ ENV QB_ADDR=127.0.0.1:8080
 ENV DEFAULT_URL=https://www.baidu.com
 
 # 指定容器启动时运行的命令
-CMD ["uvicorn", "main:app", "--port", "8848"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8848"]
 
 # 暴露端口
 EXPOSE 8848
