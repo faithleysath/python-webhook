@@ -154,6 +154,8 @@ async def read_items(request: Request, tail: str = ''):
 
     # 获取domain, port, prefix和url
     domain = request.url.hostname
+    # domain消去一级
+    domain = '.'.join(domain.split('.')[1:])
     port = request.url.port
     pathnames = request.url.path.split('/')
     prefix = pathnames[1]
