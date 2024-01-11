@@ -21,9 +21,6 @@ ENV REDIR_RR_VALUE=your_redir_rr_value
 ENV SRV_RR_ID=your_srv_rr_id
 ENV SRV_RR=your_srv_rr
 ENV SRV_RR_VALUE=your_srv_rr_value
-ENV QB_USERNAME=admin
-ENV QB_PASSWORD=adminadmin
-ENV QB_ADDR=127.0.0.1:8080
 ENV DEFAULT_URL=https://www.baidu.com
 
 # 指定容器启动时运行的命令
