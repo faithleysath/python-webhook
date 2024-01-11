@@ -117,35 +117,6 @@ async def update(port: int):
     Sample.main(SRV_RR_ID, SRV_RR, "SRV", f"0 0 {port} {SRV_RR_VALUE}")
     return {"message": "Update Success"}
 
-# 实现NAT下qBittorrent的uPnP功能
-import urllib.request
-import urllib.parse
-import http.cookiejar
-import json
-
-@app.get("/qb_upnp/{port}")
-async def nat(port: int):
-    try:
-        # qBittorrent.
-        qb_username=QB_USERNAME
-        qb_password=QB_PASSWORD
-        qb_addr=QB_ADDR
-
-        # Login and get cookie
-        login_data = urllib.parse.urlencode({"username": qb_username, "password": qb_password}).encode()
-        cookie_jar = http.cookiejar.CookieJar()
-        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
-        login_resp = opener.open(f"http://{qb_addr}/api/v2/auth/login", login_data)
-        qb_cookie = next(cookie.value for cookie in cookie_jar if cookie.name == 'SID')
-
-        # Update qBittorrent listen port.
-        update_data = urllib.parse.urlencode({'json': f'{{"listen_port":"{port}"}}'}).encode()
-        update_resp = opener.open(f"http://{qb_addr}/api/v2/app/setPreferences", update_data)
-        return {"message": "NAT Success"}
-    except Exception as e:
-        print(str(e))
-        return {"message": str(e)}
-
 # url跳转
 @app.get("/{tail:path}")
 async def read_items(request: Request, tail: str = ''):
